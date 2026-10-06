@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #000000;
+  --color-panel: #141416;
+  --color-panel-2: #1c1c20;
+  --color-line: #2c2c32;
+  --color-text: #f3f3f4;
+  --color-muted: #9b9ba4;
+  --color-silver: #c9c9cf;
+  --color-crimson: #c8102e;
+  --color-ember: #ff2b3d;
+  --font-display: var(--font-cinzel), "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-script: var(--font-script-face), cursive;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--color-ink);
+  color: var(--color-text);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-panel p-4;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-semibold tracking-wider text-muted uppercase;
+  }
+  /* 16px+ text keeps iOS Safari from zooming into inputs. */
+  .input {
+    @apply w-full rounded-xl border border-line bg-panel-2 px-3.5 py-3 text-base text-text placeholder:text-muted/60 focus:border-ember focus:ring-2 focus:ring-ember/30 focus:outline-none;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-base font-semibold transition active:scale-[0.98] disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-crimson text-white shadow-[0_0_18px_rgba(255,43,61,0.35)] hover:bg-ember;
+  }
+  .btn-ghost {
+    @apply border border-line bg-panel-2 text-silver hover:border-silver/40;
+  }
+  .btn-danger {
+    @apply border border-crimson/50 bg-transparent text-ember hover:bg-crimson/10;
+  }
+  .chip {
+    @apply rounded-full border border-line bg-panel-2 px-3.5 py-2 text-sm font-medium text-silver transition;
+  }
+  .chip-on {
+    @apply border-ember bg-crimson/20 text-white shadow-[0_0_12px_rgba(255,43,61,0.3)];
+  }
+  .heading {
+    @apply font-display tracking-wide text-white;
+  }
+  .glow-text {
+    text-shadow: 0 0 14px rgba(255, 43, 61, 0.55);
+  }
+}
