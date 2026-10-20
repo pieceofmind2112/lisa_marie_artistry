@@ -18,7 +18,7 @@ Status as of 2026-10-20. Written so a new agent (or person) can pick up the work
 Work these in order. Items 1, 2, 3 and 6 involve code or repo changes; 4 and 5 need the owner's accounts and
 can't be done by an agent.
 
-### 1. Fix `npm run typecheck` on a fresh clone (small, do first)
+### 1. Fix `npm run typecheck` on a fresh clone (done)
 
 `tsc --noEmit` fails with `Cannot find name 'PageProps'` / `'LayoutProps'` until a build has generated Next's
 route types. Change the script in `package.json` to:
