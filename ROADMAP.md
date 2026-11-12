@@ -73,10 +73,9 @@ GOOGLE_CALENDAR_ID=lisacfurth@gmail.com
    Book a test client and confirm on Lisa's calendar that the event appears, moves when the time is edited,
    gets a ✓ in the title when marked paid, and disappears when cancelled. Delete the test client afterwards.
 
-### 3. Rename the branch to `main` (owner decision)
+### 3. Rename the branch to `main` (done)
 
-Vercel's import (SETUP.md step 6) deploys the default branch. Ask the owner before renaming or changing the
-default branch on GitHub.
+The owner renamed it on 2026-11-12. Vercel deploys `main`; see [DEPLOY.md](DEPLOY.md).
 
 ### 4. Start Twilio A2P 10DLC registration (owner, start early)
 

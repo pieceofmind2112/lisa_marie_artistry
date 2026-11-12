@@ -5,6 +5,18 @@ function env(name: string): string | undefined {
   return v && v.trim() !== "" ? v.trim() : undefined;
 }
 
+/**
+ * The key is usually pasted straight from the service account's JSON file, so accept it with or without the
+ * surrounding quotes and with literal "\n" sequences or real line breaks.
+ */
+export function normalizePrivateKey(raw: string): string {
+  return raw
+    .trim()
+    .replace(/,$/, "")
+    .replace(/^"([\s\S]*)"$/, "$1")
+    .replace(/\\n/g, "\n");
+}
+
 /** Demo mode keeps data in a local JSON file and skips Google/Twilio. Local use only. */
 export function isDemoMode(): boolean {
   return env("DEMO_MODE") === "true" && !process.env.VERCEL;
@@ -27,8 +39,8 @@ export const config = {
     return env("GOOGLE_SERVICE_ACCOUNT_EMAIL");
   },
   get serviceAccountKey() {
-    // Vercel and .env files store the key with literal "\n" sequences.
-    return env("GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY")?.replace(/\\n/g, "\n");
+    const raw = env("GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY");
+    return raw === undefined ? undefined : normalizePrivateKey(raw);
   },
   get spreadsheetId() {
     return env("GOOGLE_SHEET_ID");

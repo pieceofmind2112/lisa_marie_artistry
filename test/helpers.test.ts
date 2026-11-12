@@ -43,3 +43,14 @@ describe("year summary", () => {
     expect(money(170)).toBe("$170");
   });
 });
+
+describe("service account key", () => {
+  const body = "-----BEGIN PRIVATE KEY-----\nabc\n-----END PRIVATE KEY-----\n";
+  it("accepts the key pasted with quotes and \\n sequences", async () => {
+    const { normalizePrivateKey } = await import("@/lib/config");
+    expect(normalizePrivateKey(JSON.stringify(body))).toBe(body);
+    expect(normalizePrivateKey(JSON.stringify(body) + ",")).toBe(body);
+    expect(normalizePrivateKey(body.replace(/\n/g, "\\n"))).toBe(body);
+    expect(normalizePrivateKey(body)).toBe(body.trim());
+  });
+});

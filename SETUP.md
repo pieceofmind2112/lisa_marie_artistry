@@ -95,13 +95,8 @@ Replies to the Twilio number don't reach Lisa, which is why every text tells cli
 
 ## 6. Put it online (Vercel, free)
 
-1. Sign in at https://vercel.com with GitHub and **Import** the `lisa_marie_artistry` repo.
-2. Before deploying, add every variable from `.env.local` under **Environment Variables**, except
-   `DEMO_MODE` (leave it out). Add `CRON_SECRET` = another `openssl rand -base64 32`.
-3. Deploy, then add the site URL (e.g. `https://lisa-marie-artistry.vercel.app`) to the OAuth client's
-   **Authorized JavaScript origins** from step 2.4.
-4. Reminders: `vercel.json` runs `/api/cron/reminders` daily at 16:00 UTC (noon Eastern / 9 AM Pacific).
-   The free plan allows one run per day; change the time in `vercel.json` if you like.
+Follow **[DEPLOY.md](DEPLOY.md)**: importing the repo, every environment variable and where to find it, allowing
+Google sign-in from the new URL, the first sign-in, and the daily reminder job.
 
 ## 7. Lisa's iPhone and iPad
 
