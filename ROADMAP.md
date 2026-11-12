@@ -7,8 +7,8 @@ Status as of 2026-10-20. Written so a new agent (or person) can pick up the work
 - The app is feature complete for a first release: booking, clients, Google Calendar sync, Twilio confirmation
   and reminder texts, expenses, and the yearly Summary tab. See [README.md](README.md) for the feature list and
   code map, and [SETUP.md](SETUP.md) for accounts and deployment.
-- All the code is in one commit (`e6c522a`) on `claude/youthful-thompson-0ewytu`. It is the only branch, so
-  GitHub probably treats it as the default branch. There are no issues or pull requests yet.
+- All the code is on `main`, the default branch (renamed from `claude/youthful-thompson-0ewytu` on
+  2026-11-12). There are no issues or pull requests yet.
 - Checks (verified 2026-10-20 on a clean checkout): `npm test` passes (12 tests), `npm run lint` passes,
   `npx next build` succeeds with `DEMO_MODE=true`.
 - Not deployed. None of the SETUP.md account steps (Google Cloud, Twilio, Vercel) are known to be done.
